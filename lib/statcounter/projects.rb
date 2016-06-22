@@ -1,7 +1,7 @@
 module Statcounter
   class Projects
-    def self.all(params: {}, credentials: nil)
-      response = Statcounter.client.get('user_projects', params: params, credentials: credentials)
+    def self.all(credentials: nil)
+      response = Statcounter.client.get('user_projects', credentials: credentials)
       response[:sc_data]
     end
   end
