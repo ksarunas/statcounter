@@ -1,11 +1,6 @@
 RSpec.describe Statcounter::ParamsEncoder do
   subject(:params_encoder) { described_class.new(credentials) }
-  let(:credentials) { { username: username, secret: secret } }
-  let(:username) { 'john_brown' }
-  let(:secret) { 'johns_little_secret' }
-  let(:default_credentials) { { username: default_username, secret: default_secret } }
-  let(:default_username) { 'tom_brown' }
-  let(:default_secret) { 'toms_little_secret' }
+  let(:credentials) { nil }
 
   before { allow(Statcounter).to receive(:default_credentials).and_return(default_credentials) }
 
@@ -15,7 +10,7 @@ RSpec.describe Statcounter::ParamsEncoder do
     let(:parsed_query) { Rack::Utils.parse_nested_query(subject) }
 
     before do
-      Timecop.freeze(Time.now.utc)
+      Timecop.freeze(Time.now)
     end
 
     it 'appends default params' do
@@ -23,7 +18,7 @@ RSpec.describe Statcounter::ParamsEncoder do
         'vn' => '3',
         't' => Time.now.to_i.to_s,
         'f' => 'json',
-        'u' => username,
+        'u' => default_credentials[:username],
         'test' => '1',
       )
 
@@ -38,11 +33,13 @@ RSpec.describe Statcounter::ParamsEncoder do
       end
     end
 
-    context 'when credentials not given' do
-      let(:credentials) { nil }
+    context 'when custom credentials given' do
+      let(:credentials) { { username: username, secret: secret } }
+      let(:username) { 'tom_brown' }
+      let(:secret) { 'toms_little_secret' }
 
       it 'uses default credentials' do
-        expect(parsed_query).to include('u' => default_username)
+        expect(parsed_query).to include('u' => username)
       end
     end
 
