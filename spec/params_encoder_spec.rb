@@ -9,9 +9,7 @@ RSpec.describe Statcounter::ParamsEncoder do
     let(:params) { { test: 1 } }
     let(:parsed_query) { Rack::Utils.parse_nested_query(subject) }
 
-    before do
-      Timecop.freeze(Time.now)
-    end
+    before { Timecop.freeze }
 
     it 'appends default params' do
       expect(parsed_query).to include(

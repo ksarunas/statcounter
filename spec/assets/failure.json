@@ -1,0 +1,9 @@
+{
+  "@attributes": {
+    "status": "fail"
+  },
+  "error": [{
+    "code": "CODE",
+    "description": "ERROR_DESCRIPTION"
+  }]
+}
