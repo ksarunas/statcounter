@@ -1,0 +1,14 @@
+{
+  "@attributes": {
+    "status":"ok"
+  },
+  "sc_data":[{
+    "project_name":"PROJECT_NAME",
+    "log_size": "LOG_SIZE",
+    "timezone": "TIME_ZONE",
+    "url":"URL",
+    "log_oldest_entry":"LOG_OLDEST_ENTRY",
+    "log_latest_entry":"LOG_LATEST_ENTRY",
+    "created_at":"CREATED_AT"
+  }]
+}
