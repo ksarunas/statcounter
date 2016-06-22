@@ -1,6 +1,11 @@
 require 'statcounter/version'
+require 'statcounter/client'
+require 'statcounter/configuration'
+require 'statcounter/params_encoder'
 
 module Statcounter
+  API_URL = 'http://api.statcounter.com/'.freeze
+
   module_function
 
   def configure
@@ -9,5 +14,13 @@ module Statcounter
 
   def config
     @config ||= Configuration.new
+  end
+
+  def client
+    @client ||= Client.new
+  end
+
+  def default_credentials
+    @default_credentials ||= { username: config.username, secret: config.secret }
   end
 end
