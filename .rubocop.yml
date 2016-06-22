@@ -9,3 +9,9 @@ SignalException:
 
 ClassAndModuleChildren:
   Enabled: false
+
+TrailingCommaInLiteral:
+  Enabled: false
+
+TrailingCommaInArguments:
+  Enabled: false
