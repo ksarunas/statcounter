@@ -1,6 +1,7 @@
 require 'statcounter/version'
 require 'statcounter/client'
 require 'statcounter/configuration'
+require 'statcounter/errors'
 require 'statcounter/params_encoder'
 require 'statcounter/projects'
 
