@@ -3,9 +3,9 @@ require 'faraday_middleware'
 
 module Statcounter
   class Client
-    def get(path, params = {}, credentials = nil)
+    def get(path, params: {}, credentials: nil)
       response = connection(credentials).get(path, params)
-      response.body
+      JSON.parse(response.body, symbolize_names: true)
     end
 
     private

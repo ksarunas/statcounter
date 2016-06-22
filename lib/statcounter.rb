@@ -2,6 +2,7 @@ require 'statcounter/version'
 require 'statcounter/client'
 require 'statcounter/configuration'
 require 'statcounter/params_encoder'
+require 'statcounter/projects'
 
 module Statcounter
   API_URL = 'http://api.statcounter.com/'.freeze
