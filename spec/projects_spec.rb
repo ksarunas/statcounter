@@ -5,7 +5,7 @@ RSpec.describe Statcounter::Projects do
     subject { described_class.all(credentials: default_credentials) }
 
     before do
-      stub_request(:get, 'http://api.statcounter.com/user_projects?f=json&sha1=06290316a4a4aa9911db04b42294609a8a4694e4&t=1466614800&u=john_brown&vn=3')
+      stub_request(:get, 'http://api.statcounter.com/user_projects?vn=3&t=1466614800&u=john_brown&f=json&sha1=06290316a4a4aa9911db04b42294609a8a4694e4')
         .to_return(body: File.read('spec/assets/user_projects.json'))
     end
 
@@ -27,7 +27,7 @@ RSpec.describe Statcounter::Projects do
     let(:project_id) { 1 }
 
     before do
-      stub_request(:get, 'http://api.statcounter.com/select_project?f=json&pi=1&sha1=229b79fa8787e1a8bf8d09c3a1cbec96a8219364&t=1466614800&u=john_brown&vn=3')
+      stub_request(:get, 'http://api.statcounter.com/select_project?pi=1&vn=3&t=1466614800&u=john_brown&f=json&sha1=229b79fa8787e1a8bf8d09c3a1cbec96a8219364')
         .to_return(body: File.read('spec/assets/select_project.json'))
     end
 
