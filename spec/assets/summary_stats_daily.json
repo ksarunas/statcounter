@@ -1,0 +1,14 @@
+{
+  "@attributes":{
+    "status":"ok"
+  },
+  "sc_data":[
+    {
+      "date":"2016-06-28",
+      "page_views":"876",
+      "unique_visits":"609",
+      "returning_visits":"57",
+      "first_time_visits":"552"
+    }
+  ]
+}

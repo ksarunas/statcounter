@@ -1,0 +1,31 @@
+{
+  "@attributes":{
+    "status":"ok"
+  },
+  "project":[
+    {
+      "id":"1",
+      "sc_data":[
+        {
+          "date":"2016-06-28",
+          "page_views":"876",
+          "unique_visits":"609",
+          "returning_visits":"57",
+          "first_time_visits":"552"
+        }
+      ]
+    },
+    {
+      "id":"2",
+      "sc_data":[
+        {
+          "date":"2016-06-28",
+          "page_views":"28",
+          "unique_visits":"25",
+          "returning_visits":"7",
+          "first_time_visits":"18"
+        }
+      ]
+    }
+  ]
+}
