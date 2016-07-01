@@ -4,6 +4,7 @@ require 'statcounter/configuration'
 require 'statcounter/errors'
 require 'statcounter/params_encoder'
 require 'statcounter/projects'
+require 'statcounter/summary_stats'
 
 module Statcounter
   API_URL = 'http://api.statcounter.com/'.freeze
