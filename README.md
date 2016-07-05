@@ -34,7 +34,7 @@ Statcounter.configure do |config|
 end
 ```
 
-In case your app has to handle multiple Statcounter accounts you can pass credentials to each enpoint wrapper method like this:
+In case your app has to handle multiple Statcounter accounts you can pass credentials to each endpoint wrapper method like this:
 
 ```ruby
 Statcounter::Projects.all(username: 'STATCOUNTER_USERNAME_HERE', secret: 'STATCOUNTER_API_PASSWORD_HERE')
