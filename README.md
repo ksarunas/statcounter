@@ -112,7 +112,7 @@ Statcounter::Projects.find([1000000, 1000001])
 
 ```ruby
 Statcounter::Projects.create(
-  title: 'mywebsite1.com',
+  project_name: 'mywebsite1.com',
   url: 'https://www.mywebsite2.com',
   public_stats: true, # default false
 )

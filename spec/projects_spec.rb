@@ -58,19 +58,19 @@ RSpec.describe Statcounter::Projects do
   describe '.create' do
     subject do
       described_class.create(
-        title: title,
+        project_name: project_name,
         url: url,
         public_stats: public_stats,
         credentials: default_credentials
       )
     end
 
-    let(:title) { 'Website title' }
+    let(:project_name) { 'Website title' }
     let(:url) { 'http://websiteurl.com' }
     let(:public_stats) { false }
 
     before do
-      stub_request(:get, "http://api.statcounter.com/add_project?wt=#{title}&wu=#{url}&ps=0&vn=3&t=1466614800&u=john_brown&f=json&sha1=46f09a1b09f4c144508966353f406c8e109295f9")
+      stub_request(:get, "http://api.statcounter.com/add_project?wt=#{project_name}&wu=#{url}&ps=0&vn=3&t=1466614800&u=john_brown&f=json&sha1=46f09a1b09f4c144508966353f406c8e109295f9")
         .to_return(body: File.read('spec/assets/add_project.json'))
     end
 
