@@ -18,7 +18,7 @@ module Statcounter
           result[project[:id].to_i] = project[:sc_data]
         end
       else
-        response[:sc_data].size > 1 ? response[:sc_data] : response[:sc_data][0]
+        response[:sc_data]
       end
     end
   end

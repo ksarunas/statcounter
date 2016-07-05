@@ -20,8 +20,8 @@ RSpec.describe Statcounter::SummaryStats do
     before { stub_request(:get, request_uri).to_return(body: File.read(response_file)) }
 
     it 'returns summery stats' do
-      expect(subject).to be_instance_of Hash
-      expect(subject).to include(
+      expect(subject).to be_instance_of Array
+      expect(subject[0]).to include(
         :date,
         :page_views,
         :unique_visits,
