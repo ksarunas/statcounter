@@ -21,5 +21,16 @@ module Statcounter
       response = Statcounter.client.get('add_project', params: params, credentials: credentials)
       response[:sc_data][0]
     end
+
+    def self.delete(project_id:, admin_username:, admin_password:, credentials: nil)
+      params = {
+        pi: project_id,
+        u: admin_username,
+        up: admin_password,
+      }
+
+      response = Statcounter.client.get('remove_project', params: params, credentials: credentials)
+      response[:@attributes][:status]
+    end
   end
 end

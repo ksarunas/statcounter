@@ -78,4 +78,24 @@ RSpec.describe Statcounter::Projects do
       expect(subject).to include(:project_id, :security_code)
     end
   end
+
+  describe '.delete' do
+    subject do
+      described_class.delete(
+        project_id: '1',
+        admin_username: 'admin',
+        admin_password: 'password',
+        credentials: default_credentials,
+      )
+    end
+
+    before do
+      stub_request(:get, "http://api.statcounter.com/remove_project?f=json&pi=1&t=1466614800&u=admin&up=password&vn=3&sha1=03c9dc0b4de6af379fc2da1513c4bdb7f9ed2c7d")
+        .to_return(body: File.read('spec/assets/remove_project.json'))
+    end
+
+    it 'deletes project' do
+      expect(subject).to eq 'ok'
+    end
+  end
 end

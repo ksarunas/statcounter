@@ -124,6 +124,18 @@ Statcounter::Projects.create(
 }
 ```
 
+#### Delete project
+```ruby
+Statcounter::Projects.delete(
+  project_id: '123123',
+  admin_username: 'admin',
+  admin_password: 'password',
+)
+
+# return string 'ok'
+'ok'
+```
+
 ### Summary stats
 
 #### Get daily
