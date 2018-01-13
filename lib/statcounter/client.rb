@@ -26,13 +26,13 @@ module Statcounter
 
     def build_connection(credentials)
       Faraday.new(url: Statcounter::API_URL) do |c|
-        c.adapter Faraday.default_adapter
         c.use FaradayMiddleware::FollowRedirects, limit: 3
         c.response :json, content_type: /\bjson$/
         c.response :raise_error
         c.options[:timeout] = config.timeout
         c.options[:open_timeout] = config.timeout
         c.options[:params_encoder] = Statcounter::ParamsEncoder.new(credentials)
+        c.adapter Faraday.default_adapter
       end
     end
 
