@@ -11,11 +11,12 @@ module Statcounter
       response[:sc_data].size > 1 ? response[:sc_data] : response[:sc_data][0]
     end
 
-    def self.create(project_name:, url:, public_stats: false, credentials: nil)
+    def self.create(project_name:, url:, public_stats: false, timezone: Statcounter.config.timezone, credentials: nil)
       params = {
         wt: project_name,
         wu: url,
         ps: public_stats ? 1 : 0,
+        tz: timezone,
       }
 
       response = Statcounter.client.get('add_project', params: params, credentials: credentials)

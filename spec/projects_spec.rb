@@ -61,7 +61,7 @@ RSpec.describe Statcounter::Projects do
         project_name: project_name,
         url: url,
         public_stats: public_stats,
-        credentials: default_credentials
+        credentials: default_credentials,
       )
     end
 
@@ -70,7 +70,7 @@ RSpec.describe Statcounter::Projects do
     let(:public_stats) { false }
 
     before do
-      stub_request(:get, "http://api.statcounter.com/add_project?wt=#{project_name}&wu=#{url}&ps=0&vn=3&t=1466614800&u=john_brown&f=json&sha1=46f09a1b09f4c144508966353f406c8e109295f9")
+      stub_request(:get, "http://api.statcounter.com/add_project?wt=#{project_name}&wu=#{url}&ps=0&vn=3&t=1466614800&tz=America/New_York&u=john_brown&f=json&sha1=a5f33c87787cce79f12569e781bd32df4c8d3573")
         .to_return(body: File.read('spec/assets/add_project.json'))
     end
 

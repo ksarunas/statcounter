@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.test_files = `git ls-files -- {spec}/*`.split("\n")
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'faraday', '>= 0.8'
+  spec.add_dependency 'faraday', '>= 0.8', '<= 0.15.2'
   spec.add_dependency 'faraday_middleware', '0.12.2'
 
   spec.add_development_dependency 'bundler', '1.16.1'

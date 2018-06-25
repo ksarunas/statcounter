@@ -115,6 +115,7 @@ Statcounter::Projects.create(
   project_name: 'mywebsite1.com',
   url: 'https://www.mywebsite2.com',
   public_stats: true, # default false
+  timezone: 'Europe/Vilnius',
 )
 
 # returns hash with id and security code
