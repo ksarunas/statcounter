@@ -6,7 +6,7 @@ module Statcounter
     STATUS_FAIL = 'fail'.freeze
 
     def get(path, params: {}, credentials: nil)
-      response = connection(credentials).get(path, params)
+      response = connections[credentials].get(path, params)
       body = JSON.parse(response.body, symbolize_names: true)
 
       if body[:@attributes][:status] == STATUS_FAIL
@@ -14,14 +14,16 @@ module Statcounter
       end
 
       body
-    rescue Faraday::ClientError => e
+    rescue Faraday::ClientError
       raise Error, 'Server could not process your request'
     end
 
     private
 
-    def connection(credentials)
-      @connection ||= build_connection(credentials)
+    def connections
+      @connections ||= Hash.new do |connections, credentials|
+        connections[credentials] = build_connection(credentials)
+      end
     end
 
     def build_connection(credentials)
